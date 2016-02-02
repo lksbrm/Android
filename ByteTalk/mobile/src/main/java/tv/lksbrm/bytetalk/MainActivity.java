@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity
         try
         {
 
-            mc = new MongoClient(new MongoClientURI("mongodb://192.168.178.27:28017"));
+            mc = new MongoClient(new MongoClientURI("mongodb://localhost:27017"));
             mm.init();
             tv.setText("Erfolgreich zur Datenbank verbunden!");
 
