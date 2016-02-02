@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         init();
+
+        mm.createUser("lukas@briemweb.de", "lukas", "test");
     }
 
     public void init()

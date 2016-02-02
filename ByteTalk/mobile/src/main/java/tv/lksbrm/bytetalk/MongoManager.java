@@ -19,6 +19,7 @@ public class MongoManager
     {
         db = MainActivity.mc.getDB("users");
         collection = db.getCollection("users");
+        ecg
     }
 
     public void createUser(String email, String name, String password)
