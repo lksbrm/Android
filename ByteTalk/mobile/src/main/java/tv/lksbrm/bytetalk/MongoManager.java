@@ -3,6 +3,7 @@ package tv.lksbrm.bytetalk;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
 /**
@@ -13,21 +14,36 @@ public class MongoManager
 
     DB db;
     DBCollection collection;
-    DBObject user;
 
     public void init()
     {
-        db = MainActivity.mc.getDB("users");
+        db = MainActivity.mc.getDB("user");
         collection = db.getCollection("users");
-        ecg
+
     }
 
     public void createUser(String email, String name, String password)
     {
-        user = new BasicDBObject("name", name)
+        DBObject user = new BasicDBObject("name", name)
                          .append("password", password)
                          .append("email", email);
 
         collection.insert(user);
     }
-}
+
+    public DBObject getUser(String name) {
+        DBObject query = new BasicDBObject("name", name);
+        DBCursor cursor = collection.find(query);
+        DBObject result = cursor.one();
+
+        return result;
+    }
+
+    public DBObject getUserByEmail(String email) {
+        DBObject query = new BasicDBObject("email", email);
+        DBCursor cursor = collection.find(query);
+        DBObject result = cursor.one();
+
+        return result;
+    }
+    }

@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 
@@ -27,7 +28,14 @@ public class MainActivity extends AppCompatActivity
 
         init();
 
-        mm.createUser("lukas@briemweb.de", "lukas", "test");
+      try
+      {
+          mm.createUser("lukas@briemweb.de", "lukas", "test");
+      }catch(Exception e)
+      {
+          tv.setText("Kritischer Fehler!");
+          e.printStackTrace();
+      }
     }
 
     public void init()
