@@ -29,6 +29,7 @@ public class MongoManager
                          .append("email", email);
 
         collection.insert(user);
+        i = q/t;
     }
 
     public DBObject getUser(String name) {
