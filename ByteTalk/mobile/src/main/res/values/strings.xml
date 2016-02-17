@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">ByteTalk</string>
     <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_user">UserActivity</string>
+    <string name="google_app_id">758443385408</string>
 </resources>
